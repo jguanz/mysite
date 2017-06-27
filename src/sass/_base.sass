@@ -1,0 +1,25 @@
+$font-stack:      Helvetica, sans-serif
+$font-stack2:     SignPainter, Helvetica, sans-serif
+$highlight-color: #ffffff
+$font-color: grey
+$dark-color: #214867
+$darkest-color: #2d2d5a
+$light-color: #C8D67D
+$primary-color:   #ece8e8
+$secondary-color: #f79b4c
+$secondary-color2: #f79044
+$tertiary-color: #F84040
+
+body
+  font: $font-stack
+  color: $primary-color
+
+@mixin font-size($sizeValue: 1.6)
+  font-size: ($sizeValue * 10) + px
+  font-size: $sizeValue + rem
+
+@mixin border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  -ms-border-radius: $radius
+  border-radius: $radius

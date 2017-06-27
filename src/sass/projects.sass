@@ -1,0 +1,48 @@
+@import "base"
+@import compass
+
+.container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 150px 0px 0px 0px
+
+.project-intro
+  font: $font-stack
+  @include font-size(2)
+  color: $darkest-color
+  width: 70vw
+  text-align: center
+
+.project-subtext
+  font: $font-stack
+  color: $font-color
+  width: 70vw
+
+.tile-container
+  margin-top: 50px
+  z-index: 0
+
+.test
+  background: $light-color
+  box-sizing: border-box
+  padding: 0 0.5rem 1rem
+  width: 40vw
+  height: 20vw
+
+
+.test2
+  background: $dark-color
+  box-sizing: border-box
+  width: 40vw
+  height: 30vw
+  padding: 0 0.5rem 1rem
+
+.test3
+  background: $secondary-color
+  box-sizing: border-box
+  width: 40vw
+  height: 10vw
+  padding: 0 0.5rem 1rem
+  overflow: hidden

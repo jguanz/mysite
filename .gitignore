@@ -1,6 +1,10 @@
 # Dependencies
 node_modules
 
+# CSS
+stylesheets
+.sass-cache
+
 # Miscellaneous
 .DS_Store
 .idea

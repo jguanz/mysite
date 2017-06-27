@@ -1,0 +1,126 @@
+@import "base"
+@import compass
+
+// n is number of stars required
+@function multiple-box-shadow ($n) 
+  $value: '#{random(2000)}px #{random(2000)}px #FFF'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF'
+
+  @return unquote($value)
+
+$shadows-small:  multiple-box-shadow(700)
+$shadows-medium: multiple-box-shadow(200)
+$shadows-big:    multiple-box-shadow(100)
+
+.splash-div
+  height: 100vh
+  background: radial-gradient(ellipse at bottom, $light-color 0%, $dark-color 100%)
+  overflow: hidden
+  display: flex
+  flex-direction: column
+  justify-content: center
+    
+#stars
+  width: 1px
+  height: 1px
+  background: transparent
+  box-shadow: $shadows-small
+  animation			: animStar 50s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $shadows-small
+    
+#stars2
+  width: 2px
+  height: 2px
+  background: transparent
+  box-shadow: $shadows-medium
+  animation			: animStar 100s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $shadows-medium
+    
+#stars3
+  width: 3px
+  height: 3px
+  background: transparent
+  box-shadow: $shadows-big
+  animation			: animStar 150s linear infinite
+    
+  &:after
+    content: " "
+    position: absolute
+    top: 2000px
+    width: 3px
+    height: 3px
+    background: transparent
+    box-shadow: $shadows-big
+
+#title
+  color: $primary-color
+  font: 100% $font-stack
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  text-align: center
+
+#title header
+  background: $highlight-color
+  @include font-size(6)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+#title p
+  background: $primary-color
+  max-width: 700px
+  letter-spacing: 2px
+  @include font-size(1.4)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+
+.project-button-container
+  display: inline-block
+  text-align: center
+  font: 150% $font-stack2
+
+.project-button
+  @include border-radius(30px)
+  display: inline-block
+  vertical-align: middle
+  background: $secondary-color
+  width: 300px
+  height: 50px
+  line-height: 50px
+  margin-top: 30px
+
+  &:hover
+    transition: .1s all
+    cursor: pointer
+    background: $secondary-color2
+
+  &:active
+    transform: translateY(4px)
+
+.about-div
+  height: 1000px
+    
+@keyframes animStar
+  from	
+    transform: translateY(0px)
+  to		
+    transform: translateY(-2000px)
+    

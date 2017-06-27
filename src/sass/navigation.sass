@@ -1,0 +1,92 @@
+@import "base"
+@import compass
+
+.navigation-dark
+  -webkit-backface-visibility: hidden
+  -webkit-transform: translateZ(0) scale(1.0, 1.0)
+  transform: translateZ(0)
+  font-smoothing: antialiased !important
+  position: absolute
+  color: white
+  padding: 20px 0px 0px 0px
+  left: 50%
+  +transform(translate(-50%))
+  z-index: 100
+
+.navigation-dark .navigation-base
+  display: inline-block
+  margin: 0px 20px 0px 20px
+  text-transform: uppercase
+  color: $highlight-color
+
+  &:after
+    display: block
+    content: ''
+    border-bottom: 2px solid $tertiary-color
+    padding: 0px 0px 20px 0px
+    transform: scaleX(0)
+    transition: transform 200ms ease-in-out
+
+  &:hover
+    color: $tertiary-color
+    cursor: pointer
+    transition: 200ms
+
+  &:hover:after
+    transform: scaleX(1)
+
+.navigation-dark .navigation-selected
+  color: $secondary-color2 !important
+  border-bottom: 2px solid $secondary-color2 !important
+  padding: 0px 0px 20px 0px
+
+  &:after
+    content: none
+
+  &:hover
+    color: $secondary-color2 !important
+    cursor: default
+
+.navigation-light
+  @extend .navigation-dark
+  background: white
+  width: 100vw
+  box-shadow: 0 2px 7px rgba(34,43,52,0.1), 0 1px 0 rgba(227,230,233,0.5)
+  position: fixed
+  transition: 500ms all
+
+.navigation-light .navigation-base
+  display: inline-block
+  margin: 0px 20px 0px 20px
+  text-transform: uppercase
+  color: $dark-color
+
+  &:after
+    display: block
+    content: ''
+    border-bottom: 2px solid $tertiary-color
+    padding: 0px 0px 20px 0px
+    transform: scaleX(0)
+    transition: transform 200ms ease-in-out
+
+  &:hover
+    color: $tertiary-color
+    cursor: pointer
+    transition: 200ms
+
+  &:hover:after
+    transform: scaleX(1)
+
+.navigation-dark .navigation-selected
+  color: $secondary-color2 !important
+  border-bottom: 2px solid $secondary-color2 !important
+  padding: 0px 0px 20px 0px
+
+  &:after
+    content: none
+
+  &:hover
+    color: $secondary-color2 !important
+    cursor: default
+
+
