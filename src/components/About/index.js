@@ -5,7 +5,7 @@ import '../../stylesheets/about.css'
 class About extends Component {
     render() {
         return (
-            <div className="about-container" id="About">
+            <div className="about-container">
                 <img src={FPO_About}></img>
             </div>
         )

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../../stylesheets/splash.css';
+import { goToAnchor } from 'react-scrollable-anchor'
 
 class Splash extends Component {
     constructor(props) {
@@ -35,13 +36,10 @@ class Splash extends Component {
 
 class Button extends Component {
 
-    onClick() {
-
-    }
 
     render() {
         return (
-            <div className="project-button-container">
+            <div className="project-button-container" onClick={() => goToAnchor('Projects')}>
                 <span className="project-button">
                     See Projects
                 </span>

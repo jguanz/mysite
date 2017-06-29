@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import Scroll from 'react-scroll';
+import ScrollableAnchor, {configureAnchors} from 'react-scrollable-anchor'
 import './App.css';
 import Navigation from "./components/Navigation";
 import Splash from './components/Splash';
 import About from './components/About';
 import Projects from "./components/Projects";
-
-var Link       = Scroll.Link;
-var Element    = Scroll.Element;
-var Events     = Scroll.Events;
-var scroll     = Scroll.animateScroll;
-var scrollSpy  = Scroll.scrollSpy;
 
 class App extends Component {
     self = this;
@@ -23,23 +17,32 @@ class App extends Component {
         }
     }
 
+    componentDidUpdate() {
+        console.log(window.location.href)
+    }
+
+    componentWillMount() {
+       configureAnchors({scrollDuration: 600, keepLastAnchorHash: true});
+    }
+
     handleSplashHeight(height) {
         self.setState({splashHeight: height});
     }
 
   render() {
+
     return (
       <div className="App">
         <Navigation splashHeight={this.state.splashHeight}/>
-        <Element name="Splash" className="element">
+        <ScrollableAnchor id={'Home'} className="element">
             <Splash splashHeight={this.handleSplashHeight}/>
-        </Element>
-        <Element name="About" className="element">
+        </ScrollableAnchor>
+        <ScrollableAnchor id={'About'} className="element">
             <About />
-        </Element>
-        <Element name="Projects" className="element">
+        </ScrollableAnchor>
+        <ScrollableAnchor id={'Projects'} className="element">
             <Projects />
-        </Element>
+        </ScrollableAnchor>
       </div>
     );
   }

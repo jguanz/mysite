@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
+import { browserHistory, Router, Route } from 'react-router';
 import '../../stylesheets/navigation.css'
-import Scroll from 'react-scroll';
-
-var Link = Scroll.Link;
+import { goToAnchor } from 'react-scrollable-anchor'
 
 class Navigation extends Component {
     constructor(props) {
@@ -20,13 +19,18 @@ class Navigation extends Component {
         }, false);
     }
 
+    onAboutClick () {
+        goToAnchor('About')
+        this.props.router.push("test")
+    }
+
     render() {
         return (
             <div className={this.state.scrollPosition < this.state.splashHeight ? "navigation-dark" : "navigation-light"}>
-                <Link to="Splash" activeClass="navigation-selected" className="navigation-base" smooth={true} spy={true}>Home </Link>
-                <Link to="About" activeClass="navigation-selected" className="navigation-base" smooth={true} spy={true}>About</Link>
-                <Link to="Projects" activeClass="navigation-selected" className="navigation-base" smooth={true} spy={true}> Projects </Link>
-                <Link to="Contacts" activeClass="navigation-selected" className="navigation-base" smooth={true} spy={true}>Contact</Link>
+                <span className="navigation-base" onClick={() => goToAnchor('Home')}>Home </span>
+                <span className="navigation-base" onClick={() => this.onAboutClick()}>About</span>
+                <span className="navigation-base" onClick={() => goToAnchor('Projects')}> Projects </span>
+                <span className="navigation-base" onClick={() => goToAnchor('Contacts')}>Contact</span>
             </div>
         )
     }
