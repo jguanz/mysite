@@ -5,6 +5,8 @@
   -webkit-backface-visibility: hidden
   -webkit-transform: translateZ(0) scale(1.0, 1.0)
   transform: translateZ(0)
+  @include font-size(1)
+  min-width: 500px
   font-smoothing: antialiased !important
   position: absolute
   color: white
@@ -22,7 +24,7 @@
   &:after
     display: block
     content: ''
-    border-bottom: 2px solid $tertiary-color
+    border-bottom: 3px solid $tertiary-color
     padding: 0px 0px 20px 0px
     transform: scaleX(0)
     transition: transform 200ms ease-in-out
@@ -37,7 +39,7 @@
 
 .navigation-dark .navigation-selected
   color: $secondary-color2 !important
-  border-bottom: 2px solid $secondary-color2 !important
+  border-bottom: None !important
   padding: 0px 0px 20px 0px
 
   &:after
@@ -64,7 +66,7 @@
   &:after
     display: block
     content: ''
-    border-bottom: 2px solid $tertiary-color
+    border-bottom: 3px solid $tertiary-color
     padding: 0px 0px 20px 0px
     transform: scaleX(0)
     transition: transform 200ms ease-in-out
@@ -79,7 +81,7 @@
 
 .navigation-dark .navigation-selected
   color: $secondary-color2 !important
-  border-bottom: 2px solid $secondary-color2 !important
+  border-bottom: 3px solid $secondary-color2 !important
   padding: 0px 0px 20px 0px
 
   &:after
@@ -88,5 +90,150 @@
   &:hover
     color: $secondary-color2 !important
     cursor: default
+    transition: none
 
 
+.small-nav
+  width: 30px
+  height: 30px
+  position: fixed
+  top: 20px
+  right: 20px
+  display: none
+  -webkit-transform: rotate(0deg)
+  -moz-transform: rotate(0deg)
+  -o-transform: rotate(0deg)
+  transform: rotate(0deg)
+  -webkit-transition: .5s ease-in-out
+  -moz-transition: .5s ease-in-out
+  -o-transition: .5s ease-in-out
+  transition: .5s ease-in-out
+  cursor: pointer
+
+  span
+    display: block
+    position: relative
+    height: 4px
+    width: 100%
+    background: $light-color
+    border-radius: 9px
+    opacity: 1
+    left: 0
+    -webkit-transform: rotate(0deg)
+    -moz-transform: rotate(0deg)
+    -o-transform: rotate(0deg)
+    transform: rotate(0deg)
+    -webkit-transition: .25s ease-in-out
+    -moz-transition: .25s ease-in-out
+    -o-transition: .25s ease-in-out
+    transition: .25s ease-in-out
+
+    &:nth-child(1)
+      top: 0px
+      -webkit-transform-origin: left center
+      -moz-transform-origin: left center
+      -o-transform-origin: left center
+      transform-origin: left center
+
+    &:nth-child(2)
+      top: 5px
+      -webkit-transform-origin: left center
+      -moz-transform-origin: left center
+      -o-transform-origin: left center
+      transform-origin: left center
+
+    &:nth-child(3)
+      top: 10px
+      -webkit-transform-origin: left center
+      -moz-transform-origin: left center
+      -o-transform-origin: left center
+      transform-origin: left center
+
+  &:hover span
+    background: $tertiary-color
+
+  transition: 300ms
+
+  &.open span:nth-child(1)
+    -webkit-transform: rotate(45deg)
+    -moz-transform: rotate(45deg)
+    -o-transform: rotate(45deg)
+    transform: rotate(45deg)
+    top: 0px
+    left: 4px
+
+  &.open span:nth-child(2)
+    width: 0%
+    opacity: 0
+
+  &.open span:nth-child(3)
+    -webkit-transform: rotate(-45deg)
+    -moz-transform: rotate(-45deg)
+    -o-transform: rotate(-45deg)
+    transform: rotate(-45deg)
+    top: 13px
+    left: 4px
+
+.nav-modal
+  right: 20px
+  top: 55px
+  position: fixed
+  width: 200px
+  background: $light-color
+  color: $highlight-color
+  opacity: .9
+  transform: scale(1, 1)
+  transform-origin: top right
+  transition: 300ms
+
+  span
+    display: block
+    cursor: pointer
+    padding: 16px 25px
+
+    &:hover
+      background: $tertiary-color
+
+  .navigation-base
+    color: $highlight-color
+
+  .navigation-selected
+    color: $secondary-color2
+    cursor: default
+
+    &:hover
+      background: $light-color
+
+
+.hidden
+  transform: scale(0, 0)
+  transition: 300ms
+
+@mixin media-query-scale($scale)
+  .navigation-dark
+    @include font-size(1*$scale)
+
+@media only screen and (min-width: 400px) and (max-width: 500px)
+  @include media-query-scale(.50)
+
+@media only screen and (min-width: 501px) and (max-width: 600px)
+  @include media-query-scale(.60)
+
+@media only screen and (min-width: 601px) and (max-width: 700px)
+  @include media-query-scale(.70)
+
+@media only screen and  (min-width: 701px) and (max-width: 800px)
+  @include media-query-scale(.80)
+
+@media only screen and  (min-width: 801px) and (max-width: 900px)
+  @include media-query-scale(.90)
+
+@media (max-width: 500px)
+  .navigation-light
+    display: none
+
+  .navigation-dark
+    display: none
+
+  .small-nav
+    display: block

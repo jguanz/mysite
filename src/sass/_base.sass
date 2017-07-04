@@ -2,6 +2,7 @@ $font-stack:      Helvetica, sans-serif
 $font-stack2:     SignPainter, Helvetica, sans-serif
 $highlight-color: #ffffff
 $font-color: grey
+$neutral-color: grey
 $dark-color: #083254
 $darkest-color: #2d2d5a
 $light-color: #7dbdd6
@@ -18,8 +19,20 @@ body
   font-size: ($sizeValue * 10) + px
   font-size: $sizeValue + rem
 
+@mixin button-scale($scale)
+  width: 300*$scale + px
+  height: 50*$scale + px
+  line-height: 50*$scale + px
+  margin-top: 30*$scale + px
+
 @mixin border-radius($radius)
   -webkit-border-radius: $radius
   -moz-border-radius: $radius
   -ms-border-radius: $radius
   border-radius: $radius
+
+@mixin transform($transform, $val)
+  -webkit-transform: $transform($val)
+  -moz-transform: $transform($val)
+  -o-transform: $transform($val)
+  transform: $transform($val)

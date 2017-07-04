@@ -6,7 +6,7 @@ class About extends Component {
     render() {
         return (
             <div className="about-container">
-                <img src={FPO_About}></img>
+                {/*<img src={FPO_About}></img>*/}
             </div>
         )
     };

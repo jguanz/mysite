@@ -17,12 +17,8 @@ class App extends Component {
         }
     }
 
-    componentDidUpdate() {
-        console.log(window.location.href)
-    }
-
     componentWillMount() {
-       configureAnchors({scrollDuration: 600, keepLastAnchorHash: true});
+        configureAnchors({scrollDuration: 600, keepLastAnchorHash: true});
     }
 
     handleSplashHeight(height) {
