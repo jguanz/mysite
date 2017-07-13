@@ -1,2 +1,129 @@
+@import "base"
+@import compass
+
 .about-container
-  background: #e6e6e6
+  height: 200vh
+
+.about-summary
+  padding: 35vh 0px 35vh 0px
+  height: 150vh
+  zoom: .5
+
+.about-skills
+  background:
+    color: $neutral-color
+    image: url('../assets/Ipad_background.jpg')
+    repeat: no-repeat
+    position: top center
+    size: auto
+    attachment: fixed
+  padding: 70px 0px 70px 0px
+
+.skills-header
+  font: 100% $font-stack2
+  @include font-size(2.5)
+  margin-bottom: 30px
+
+  span
+    font: 100% $font-stack3
+    @include font-size(3)
+    display: block
+    padding: 20px 0px 20px 0px
+
+.skills-container
+  position: relative
+  width: 1200px
+  display: flex
+  flex-flow: row wrap
+  flex-wrap: wrap
+  background: transparent
+  margin: 10px auto 10px auto
+
+.skill-container
+  display: flex
+  flex-direction: column
+  //zoom: .5
+
+.skill-name
+  text-align: left
+  margin-left: 8px
+
+.battery-container
+  width: 600px
+  display: flex
+  flex-direction: row
+
+.battery-graphic
+  width: 480px
+  height: 54px
+  margin: 5px 0px 10px 0px
+  position: relative
+  animation: batteryFade 1s ease-in-out
+
+  &.show
+    animation: batteryFade 1s ease-in-out
+
+.battery-graphic::before
+  content: ''
+  top: 0
+  height: 100%
+  width: 8px
+  left: 8px
+  position: absolute
+  background-image: url('../assets/battery-left-blue.png')
+
+.battery-graphic::after
+  content: ''
+  top: 0
+  height: 100%
+  width: 12px
+  right: -22px
+  position: absolute
+  background-image: url('../assets/battery-right-blue.png')
+
+.battery-inactive-tick
+  top: 0
+  height: 100%
+  width: 100%
+  left: 14px
+  display: block
+  position: relative
+  background-position: 0 50%
+  background-image: url('../assets/battery-tick-inactive.png')
+  background-repeat: repeat-x
+
+.battery-active-tick
+  top: 0
+  height: 100%
+  width: 100%
+  display: block
+  position: relative
+  background-position: 0 50%
+  background-image: url('../assets/battery-tick-active.png')
+  background-repeat: repeat-x
+  animation: batteryLevel 2s ease-in-out
+
+.battery-level
+  @include font-size(1.2)
+  color: $light-color
+  margin-left: 35px
+  line-height: 65px
+
+@keyframes batteryLevel
+  from
+    width: 0%
+
+@keyframes batteryFade
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes batterySlideRight
+  0%
+    transform: translateX(-600px)
+
+  100%
+    transform: translateX(0px)
+

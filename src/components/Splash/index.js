@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../../stylesheets/splash.css';
-import { goToAnchor } from 'react-scrollable-anchor'
+import {goToAnchor} from 'react-scrollable-anchor'
 
 class Splash extends Component {
     constructor(props) {
@@ -8,27 +8,35 @@ class Splash extends Component {
     }
 
     componentDidMount() {
-        this.props.splashHeight(document.getElementById("splash").clientHeight)
-    }
+        this.props.handleSplashHeight(document.getElementById("splash").clientHeight)
 
-    componentDidUpdate() {
-        this.props.splashHeight(document.getElementById("splash").clientHeight)
+        let self = this;
+
+        window.addEventListener("resize", function (event) {
+            self.props.handleSplashHeight(document.getElementById("splash").clientHeight)
+        }, false);
     }
 
     render() {
+        var splashOpacity = 1 - this.props.scrollPosition / this.props.splashHeight;
+
+        if(splashOpacity > 1) {
+            splashOpacity = 1;
+        }
+
         return (
             <div className="splash-div" id="splash">
                 <div id='stars'></div>
                 <div id='stars2'></div>
                 <div id='stars3'></div>
-                <div id='title'>
+                <div id='title' style={{"opacity": splashOpacity}}>
                     <header>
                         Hello, World.
                     </header>
-                    <p>My name is John Guanzon, I am a software engineer based in Seattle.  Check out
-                    some of the things I've worked on, and drop me a note if they interest you :).  </p>
+                    <p>My name is John Guanzon, I am a software engineer based in Seattle. Check out
+                        some of the things I've worked on, and drop me a note if they interest you :). </p>
+                    <Button />
                 </div>
-                <Button />
             </div>
         );
     }
@@ -46,6 +54,7 @@ class Button extends Component {
             </div>
         )
     }
-};
+}
+;
 
 export default Splash;

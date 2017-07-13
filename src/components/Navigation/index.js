@@ -2,25 +2,15 @@ import React, {Component} from 'react';
 import { withRouter } from 'react-router';
 import '../../stylesheets/navigation.css';
 import { goToAnchor } from 'react-scrollable-anchor';
-import FPO_Menu from '../../assets/FPO_Menu.svg'
 
 class Navigation extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            scrollPosition: 0,
             splashHeight: 0,
             navModal: false
         }
-    }
-
-    componentDidMount() {
-        self = this;
-
-        window.addEventListener("scroll", function (event) {
-            self.setState({scrollPosition: this.scrollY})
-        }, false);
     }
 
     onSmallNavClick () {
@@ -32,7 +22,7 @@ class Navigation extends Component {
     render() {
         return (
             <div className="nav-container">
-                <div className={this.state.scrollPosition < this.state.splashHeight ? "navigation-dark" : "navigation-light"}>
+                <div className={this.props.scrollPosition < this.props.splashHeight ? "navigation-dark" : "navigation-light"}>
                     <Links />
                 </div>
                 <div className={this.state.navModal ? "small-nav open" : "small-nav"} onClick={() => this.onSmallNavClick()} >

@@ -1,17 +1,23 @@
 @import "base"
 @import compass
 
+$title-header-font-size: 10
+$title-p-font-size: 1.6
+$title-width: 700
+$button-size: 1
+$button-font-size: 2
+
 // n is number of stars required
 @function multiple-box-shadow ($n) 
-  $value: '#{random(2000)}px #{random(2000)}px #FFF'
+  $value: '#{random(3600)}px #{random(2000)}px #FFF'
   @for $i from 2 through $n
-    $value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF'
+    $value: '#{$value} , #{random(3600)}px #{random(2000)}px #FFF'
 
   @return unquote($value)
 
-$shadows-small:  multiple-box-shadow(700)
-$shadows-medium: multiple-box-shadow(200)
-$shadows-big:    multiple-box-shadow(100)
+$shadows-small:  multiple-box-shadow(900)
+$shadows-medium: multiple-box-shadow(300)
+$shadows-big:    multiple-box-shadow(150)
 
 .splash-div
   height: 100vh
@@ -81,15 +87,15 @@ $shadows-big:    multiple-box-shadow(100)
 
 #title header
   background: $highlight-color
-  @include font-size(6)
+  @include font-size($title-header-font-size)
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
 
 #title p
   background: $primary-color
-  max-width: 700px
+  max-width: $title-width + px
   margin: 10px 20px 0px 20px
-  @include font-size(1.4)
+  @include font-size($title-p-font-size)
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
 
@@ -97,11 +103,11 @@ $shadows-big:    multiple-box-shadow(100)
   display: inline-block
   text-align: center
   font: 100% $font-stack2
-  @include font-size(2)
+  @include font-size($button-font-size)
 
 .project-button
   @include border-radius(30px)
-  @include button-scale(1)
+  @include button-scale($button-size)
   display: inline-block
   vertical-align: middle
   text-align: center
@@ -124,17 +130,17 @@ $shadows-big:    multiple-box-shadow(100)
 
 @mixin media-query-scale($scale)
   #title header
-    @include font-size(6*$scale)
+    @include font-size($title-header-font-size * $scale)
 
   #title p
-    @include font-size(1.4*$scale)
-    width: 700*$scale + px
+    @include font-size($title-p-font-size * $scale)
+    width: $title-width * $scale + px
 
   .project-button-container
-    @include font-size(2*$scale)
+    @include font-size($button-font-size * $scale)
 
   .project-button
-    @include button-scale(1*$scale)
+    @include button-scale($button-size * $scale)
 
 @media only screen and (min-width: 400px) and (max-width: 500px)
   @include media-query-scale(.50)
