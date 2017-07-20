@@ -24,7 +24,7 @@ class Projects extends Component {
                          infiniteScroll={this.getItems}
                          sizes={[{columns: 1, gutter: 20},
                                 {mq: '768px', columns: 2, gutter: 20},
-                                {mq: '1024px', columns: 2, gutter: 20}]}>
+                                {mq: '1024px', columns: 3, gutter: 20}]}>
                     <div key="1" className="test">
                         Bar top arcade and emulator
                     </div>
@@ -43,9 +43,7 @@ class Projects extends Component {
                     <div key="7" className="test2">
                         Smart water dispenser
                     </div>
-                    <div key="9" className="test">
-                        Smart wall
-                    </div>
+
                 </Masonry>
             </div>
         )

@@ -2,24 +2,157 @@
 @import compass
 
 .about-container
-  height: 200vh
+  position: relative
+  background-color: #e6e6e6
 
 .about-summary
-  padding: 35vh 0px 35vh 0px
-  height: 150vh
-  zoom: .5
+  padding: 10vh 0px 10vh 0px
+
+.summary-container
+  opacity: 0
+
+.load-summary-container
+  opacity: 1
+  transition: 300ms ease-in-out
+
+.summary-header
+  font: 100% $font-stack2
+  @include font-size(2.5)
+  color: $dark-color
+  margin-bottom: 30px
+
+.summary-title
+  display: block
+  font: 100% $font-stack3
+  @include font-size(3)
+  color: $dark-color
+  padding: 20px 0px 20px 0px
+
+.summary-subtext
+  font: 100% $font-stack
+  @include font-size(1.5)
+  color: $light-color
+
+.summary-photo
+  width: 300px
+  height: 300px
+  background-image: url('../assets/Profile_Photo.jpg')
+  background-position: center
+  background-size: 160%
+  background-repeat: no-repeat
+  margin: 0px auto 50px auto
+  border: 3px solid black
+  border-radius: 50%
+  background-color: $secondary-color
+
+.summary-who-am-i
+  @include font-size(1.2)
+  margin: 0px auto
+  max-width: 1100px
+  padding: 0px 20px 0px 20px
+  color: $dark-color
+
+.personal-details-container
+  width: 1000px
+  margin: 50px auto 0px auto
+  display: flex
+  flex-direction: row
+
+.personal-detail-container
+  width: 300px
+  margin: 0px auto
+  padding: 0px 10px 0px 10px
+  display: block
+  transform: translate(0, 0)
+  transition: 300ms
+
+.left
+  width: 300px
+  margin: 0px auto
+  padding: 0px 10px 0px 10px
+  display: block
+  transform: translateX(-50px)
+  opacity: 0
+
+.bottom
+  transform: translateY(50px)
+  opacity: 0
+
+.right
+  transform: translateX(50px)
+  opacity: 0
+
+.personal-detail-icon
+  position: relative
+  width: 100px
+  height: 100px
+  margin: 0px auto 25px auto
+  border-radius: 50%
+  border: $light-color 2px solid
+  background:
+    position: center
+    size: 68%
+    repeat: no-repeat
+
+  &:hover
+    box-shadow: 0px 0px 8px $light-color
+
+  &::before
+    top: -2px
+    left: -2px
+    position: absolute
+    content: ''
+    width: 100px
+    height: 100px
+    margin: 0px auto 25px auto
+    border-radius: 50%
+    border: $light-color 2px solid
+
+  &:hover:before
+    animation: detailIconPulse 250ms
+
+.personal-detail-title
+  font: 100% $font-stack3
+  @include font-size(1)
+  color: $dark-color
+  padding: 0px 0px 10px 0px
+
+.personal-detail-description
+  @include font-size(.9)
+  color: $dark-color
+
+.about-resume
+  font: 100% $font-stack2
+  @include font-size(2)
+  width: 400px
+  height: 50px
+  border-radius: 30px
+  background-color: $light-color
+  margin: 50px auto
+  line-height: 50px
 
 .about-skills
   background:
-    color: $neutral-color
-    image: url('../assets/Ipad_background.jpg')
+    //color: $neutral-color
+    image: url('../assets/Coding_Wallpaper_Dark.png')
     repeat: no-repeat
     position: top center
-    size: auto
+    //size: 50vw
+    size: 100vw 200vh
     attachment: fixed
   padding: 70px 0px 70px 0px
 
+.about-social-links
+  margin: 100px auto 0px auto
+  height: 76px
+  width: 390px
+  display: flex
+  flex-direction: row
+  background-image: url('../assets/FPO_Social_Links.png')
+  zoom: .75
+
 .skills-header
+  opacity: 0
   font: 100% $font-stack2
   @include font-size(2.5)
   margin-bottom: 30px
@@ -29,6 +162,10 @@
     @include font-size(3)
     display: block
     padding: 20px 0px 20px 0px
+
+  &.show
+    opacity: 1
+    animation: batteryFade 300ms ease-in-out
 
 .skills-container
   position: relative
@@ -40,9 +177,14 @@
   margin: 10px auto 10px auto
 
 .skill-container
+  opacity: 0
   display: flex
   flex-direction: column
   //zoom: .5
+
+  &.show
+    opacity: 1
+    animation: batteryFade 300ms ease-in-out
 
 .skill-name
   text-align: left
@@ -54,14 +196,12 @@
   flex-direction: row
 
 .battery-graphic
+  opacity: 1
   width: 480px
   height: 54px
   margin: 5px 0px 10px 0px
   position: relative
-  animation: batteryFade 1s ease-in-out
-
-  &.show
-    animation: batteryFade 1s ease-in-out
+//animation: batteryFade 300ms
 
 .battery-graphic::before
   content: ''
@@ -101,13 +241,32 @@
   background-position: 0 50%
   background-image: url('../assets/battery-tick-active.png')
   background-repeat: repeat-x
-  animation: batteryLevel 2s ease-in-out
+
+  &.show
+    opacity: 1
+    animation: batteryLevel 2s ease-in-out
 
 .battery-level
   @include font-size(1.2)
-  color: $light-color
+  color: $highlight-color
   margin-left: 35px
   line-height: 65px
+
+@keyframes detailIconPulse
+  0%
+    transform: scale(1, 1)
+    transform-origin: center
+    opacity: 1
+
+  100%
+    transform: scale(1.5, 1.5)
+    transform-origin: center
+    opacity: 0
+
+@keyframes slideDetail
+  100%
+    transform: translate(0, 0)
+    opacity: 1
 
 @keyframes batteryLevel
   from

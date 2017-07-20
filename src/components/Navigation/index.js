@@ -45,7 +45,7 @@ function Links(props) {
         <span className={window.location.hash === "#Home" || window.location.hash === "" ? "navigation-base navigation-selected" : "navigation-base"} onClick={() => goToAnchor('Home')} alt="Home">Home </span>
         <span className={window.location.hash === "#About" ? "navigation-base navigation-selected" : "navigation-base"} onClick={() => goToAnchor('About')} alt="About">About</span>
         <span className={window.location.hash === "#Projects" ? "navigation-base navigation-selected" : "navigation-base"} onClick={() => goToAnchor('Projects')} alt="Projects"> Projects </span>
-        <span className={window.location.hash === "#Contact" ? "navigation-base navigation-selected" : "navigation-base"} onClick={() => goToAnchor('Contacts')} alt="Contact">Contact</span>
+        <span className={window.location.hash === "#Contact" ? "navigation-base navigation-selected" : "navigation-base"} onClick={() => goToAnchor('Contact')} alt="Contact">Contact</span>
     </div>
     )
 }

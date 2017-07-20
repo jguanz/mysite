@@ -20,7 +20,7 @@ class Splash extends Component {
     render() {
         var splashOpacity = 1 - this.props.scrollPosition / this.props.splashHeight;
 
-        if(splashOpacity > 1) {
+        if(splashOpacity == NaN || splashOpacity > 1) {
             splashOpacity = 1;
         }
 
@@ -29,7 +29,7 @@ class Splash extends Component {
                 <div id='stars'></div>
                 <div id='stars2'></div>
                 <div id='stars3'></div>
-                <div id='title' style={{"opacity": splashOpacity}}>
+                <div id='title' style={{"opacity": isNaN(splashOpacity) ? 1 : splashOpacity}}>
                     <header>
                         Hello, World.
                     </header>
