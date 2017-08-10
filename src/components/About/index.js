@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import '../../stylesheets/about.css'
-import AnimatedNumber from 'react-animated-number'
-import star from '../../assets/FPO_Star.svg'
+import '../../stylesheets/about.css';
+import AnimateNumber from 'react-animate-number';
+// import star from '../../assets/FPO_Star.svg';
+import BicycleIcon from '../../assets/FPO_Philosphy.png';
 
 class About extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class About extends Component {
             this.setState({detailsAnimationComplete: true});
         }
 
-        if (!this.state.skillsAnimationComplete && this.props.scrollPosition > this.props.splashHeight * .9) {
+        if (!this.state.skillsAnimationComplete && this.props.scrollPosition > this.props.splashHeight * 1.2) {
             this.setState({skillsAnimationComplete: true});
         }
     }
@@ -42,32 +43,22 @@ class About extends Component {
                             Personal Details
                             <span className="summary-title">Who am I?</span>
                             <span
-                                className="summary-subtext">I'm a software engineer eager to write quality code.</span>
+                                className="summary-subtext">I'm a software engineer who enjoys writing quality code.</span>
                         </div>
                         <div className="summary-who-am-i">
-                            When someone looks at my code I want them to think, "this person cares about their code!".
-                            Single responsibility methods, self-documenting code, use of appropriate design patterns;
-                            anything that makes the future use and examination of the code easier.
-                            My experience is broad: professionally I’ve written web
-                            applications, Microsoft applications, IBM Z/os applications; front-end and back-end.  In my spare time I've experimented with
-                            microcontrollers, mobile devlopment, VR and machine learning. 
+                            My experience is broad: professionally I’ve written web applications, Microsoft applications and IBM Z/os applications; I'm eager to try new things and see what works best!
                         </div>
                     </div>
-                    {/*<div className="personal-details-container">*/}
-                    {/*{this.props.personalDetails.map((detail) => <PersonalDetail*/}
-                    {/*detailsAnimationComplete={this.state.detailsAnimationComplete}*/}
-                    {/*position={detail.position} description={detail.description} title={detail.title}/>)}*/}
-                    {/*</div>*/}
-                    {/*<div className="about-resume">*/}
-                    {/*Full Resume*/}
-                    {/*</div>*/}
-                    <div className="about-social-links">
+                    <div className="personal-details-container">
+                        {this.props.personalDetails.map((detail) => <PersonalDetail
+                        detailsAnimationComplete={this.state.detailsAnimationComplete} icon={detail.icon}
+                        position={detail.position} description={detail.description} title={detail.title}/>)}
                     </div>
                 </div>
                 <div className="about-skills">
                     <div className={this.state.skillsAnimationComplete ? "skills-header show" : "skills-header"}>
                         My Skills
-                        <span> What I'm Best At</span>
+                        <span>What I'm Best At</span>
                     </div>
                     <div className="skills-container">
                         {this.props.skills.map((skill) => <Skill key={skill.skillName} skillName={skill.skillName}
@@ -84,7 +75,7 @@ function PersonalDetail(props) {
     return (
         <div className={props.detailsAnimationComplete ? "personal-detail-container" : props.position}>
             <div className="personal-detail-icon">
-                <img src={star} className="personal-detail-icon"/>
+                <img src={props.icon} className="personal-detail-image"/>
             </div>
             <div className="personal-detail-title">
                 {props.title}
@@ -108,11 +99,7 @@ function Skill(props) {
                             style={{"width": props.skillLevel + '%'}}/>
                     </span>
                 </div>
-                <AnimatedNumber className="battery-level"
-                                initialValue={0}
-                                value={parseInt(props.skillLevel)}
-                                duration={2000} stepPrecision={0}
-                                formatValue={n => `${n}%`}/>
+                <span className="battery-level"><AnimateNumber start={props.skillsAnimationComplete} number={parseInt(props.skillLevel)} speed={20}/>%</span>
             </div>
         </div>
     )

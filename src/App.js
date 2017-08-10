@@ -6,6 +6,10 @@ import Splash from './components/Splash';
 import About from './components/About';
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import PhilosophyIcon from './assets/FPO_Philosphy.png';
+import HobbiesIcon from './assets/FPO_Bicycle.png';
+import MusicIcon from './assets/FPO_Music.png';
 
 class App extends Component {
     constructor(props) {
@@ -63,19 +67,22 @@ class App extends Component {
 
         let personalDetails = [
             {
-                "title" : "Philosophy",
-                "description" : "I believe quality software adheres to well established design patterns, software that is thoughtfully designed for extensibility and ease of maintenance.  Code should be self-documenting, composed of single-responsibility methods and does not repeat itself.",
-                "position" : "left"
+                "title": "Philosophy",
+                "icon": PhilosophyIcon,
+                "description": "I care about the code I write.  Single responsibility methods, self-documenting code, use of appropriate design patterns; I use well established practices to ensure my code is extensible and easy to understand.",
+                "position": "left"
             },
             {
-                "title" : "Hobbies",
-                "description" : "I like to spend time with family and friends, a picnic at the park, or a stroll along Lake Washington boulevard.  I keep things pretty quiet.",
-                "position" : "bottom"
+                "title": "Hobbies",
+                "icon": HobbiesIcon,
+                "description": "I like to spend time with family and friends, a picnic at the park, or a stroll along Lake Washington.  I keep things pretty simple.",
+                "position": "bottom"
             },
             {
-                "title" : "Tunes",
-                "description" : "On any given day there’s a 90% chance that I’m listening to Marvin Gaye or John Legend.  When I feel like a podcast: Software Engineering Daily, Planet Money, and Conversations With Tyler.",
-                "position" : "right"
+                "title": "Tunes",
+                "icon": MusicIcon,
+                "description": "On any given day there’s a good chance that I’m listening to Marvin Gaye or John Legend.  When I feel like a podcast: Software Engineering Daily, Planet Money, and Conversations With Tyler.",
+                "position": "right"
             }
         ]
 
@@ -95,6 +102,9 @@ class App extends Component {
                 </ScrollableAnchor>
                 <ScrollableAnchor id={'Contact'} className="element">
                     <Contact />
+                </ScrollableAnchor>
+                <ScrollableAnchor id={'Footer'} className="element">
+                    <Footer />
                 </ScrollableAnchor>
             </div>
         );

@@ -11,8 +11,11 @@ class Projects extends Component {
 
         return (
             <div className="container">
-                <div className="project-intro">
-                    Here are some projects I've done in my free time.  Software, hardware, fabrication and construction, I just like building things.
+                <div className="project-header">
+                    Projects
+                </div>
+                <div className="project-title">
+                    Here are some projects I've done in my free time.
                 </div>
 
                 <div className="project-subtext">
@@ -28,10 +31,10 @@ class Projects extends Component {
                     <div key="1" className="test">
                         Bar top arcade and emulator
                     </div>
-                    <div key="2" className="test2">
+                    <div key="2" className="test">
                         Smart water dispenser
                     </div>
-                    <div key="4" className="test3">
+                    <div key="4" className="test">
                         Smart desk
                     </div>
                     <div key="5" className="test">
@@ -40,7 +43,7 @@ class Projects extends Component {
                     <div key="6" className="test">
                         Bar top arcade and emulator
                     </div>
-                    <div key="7" className="test2">
+                    <div key="7" className="test">
                         Smart water dispenser
                     </div>
 

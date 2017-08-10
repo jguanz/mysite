@@ -1,18 +1,85 @@
 @import "base"
 @import compass
 
+$contact-top-and-bottom-padding: 150
+$contact-header-font-size: 2.5
+$contact-title-font-size: 3
+$contact-subtext-font-size: 1.5
 
 .contact-container
-  padding: 150px 0px 150px 0px
-
-.contact-info
-  height: 50vh
   opacity: .7
   background:
     image: url('../assets/Contact_Background.png')
     repeat: no-repeat
     size: 100vw
     attachment: fixed
+  display: flex
+  flex-direction:  column
+  padding: $contact-top-and-bottom-padding + px 0px $contact-top-and-bottom-padding + px 0px
 
-.footer-container
-  height: 20vh
+.contact-header
+  font: 100% $font-stack2
+  @include font-size($contact-header-font-size)
+  color: $highlight-color
+
+.contact-title
+  font: 100% $font-stack3
+  @include font-size($contact-title-font-size)
+  color: $highlight-color
+
+.contact-form-container
+  width: 100%
+  display: flex
+  flex-direction: column
+
+.contact-form-top-container
+  width: 80%
+  display: flex
+  flex-direction: row
+  margin: 40px auto
+
+.contact-form-left
+  width: 50%
+  display: flex
+  flex-direction: column
+  margin: 0px 10px 0px 0px
+
+.contact-form-right
+  width: 50%
+  margin: 0px 0px 0px 10px
+
+.input-title
+  text-align: left
+  margin: 20px 0px 10px 0px
+
+.contact-input
+  height: 30px
+  padding: 5px 0px 0px 0px
+
+.contact-input-message
+  height: 204px
+  width: 100%
+  padding: 5px 0px 0px 0px
+
+.contact-form-bottom-container
+  width: 80%
+  display: flex
+  flex-direction: row
+  margin: 0px auto
+  justify-content: flex-end
+
+.reset-button
+  width: 150px
+  height: 40px
+  background-color: $secondary-color2
+  margin: 0px 10px 0px 0px
+  border-radius: 30px
+  line-height: 40px
+
+.send-button
+  width: 150px
+  height: 40px
+  background-color: $secondary-color2
+  margin: 0px 0px 0px 10px
+  border-radius: 30px
+  line-height: 40px

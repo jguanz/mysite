@@ -1,12 +1,18 @@
 @import "base"
 @import compass
 
+$about-top-and-bottom-padding: 150
+$summary-header-font-size: 2.5
+$summary-title-font-size: 3
+$summary-subtext-font-size: 1.5
+$summary-whoami-font-size: 1.2
+
 .about-container
   position: relative
-  background-color: #e6e6e6
+  background-color: $neutral-color2
 
 .about-summary
-  padding: 10vh 0px 10vh 0px
+  padding: $about-top-and-bottom-padding + px 0px $about-top-and-bottom-padding + px 0px
 
 .summary-container
   opacity: 0
@@ -17,20 +23,21 @@
 
 .summary-header
   font: 100% $font-stack2
-  @include font-size(2.5)
+  @include font-size($summary-header-font-size)
   color: $dark-color
   margin-bottom: 30px
 
 .summary-title
   display: block
   font: 100% $font-stack3
-  @include font-size(3)
+  @include font-size($summary-title-font-size)
   color: $dark-color
   padding: 20px 0px 20px 0px
 
 .summary-subtext
   font: 100% $font-stack
-  @include font-size(1.5)
+  max-width: 1000px
+  @include font-size($summary-subtext-font-size)
   color: $light-color
 
 .summary-photo
@@ -46,15 +53,15 @@
   background-color: $secondary-color
 
 .summary-who-am-i
-  @include font-size(1.2)
+  @include font-size($summary-whoami-font-size)
   margin: 0px auto
   max-width: 1100px
   padding: 0px 20px 0px 20px
   color: $dark-color
 
 .personal-details-container
-  width: 1000px
-  margin: 50px auto 0px auto
+  max-width: 1000px
+  margin: 30px auto 0px auto
   display: flex
   flex-direction: row
 
@@ -64,22 +71,26 @@
   padding: 0px 10px 0px 10px
   display: block
   transform: translate(0, 0)
-  transition: 300ms
+  transition: 500ms
+  font-smoothing: antialiased !important
+  -webkit-backface-visibility: hidden
+  -webkit-transform: translateZ(0) scale(1.0, 1.0)
+  transform: translateZ(0)
 
 .left
   width: 300px
   margin: 0px auto
   padding: 0px 10px 0px 10px
   display: block
-  transform: translateX(-50px)
+  transform: translateX(-100px)
   opacity: 0
 
 .bottom
-  transform: translateY(50px)
+  transform: translateY(100px)
   opacity: 0
 
 .right
-  transform: translateX(50px)
+  transform: translateX(100px)
   opacity: 0
 
 .personal-detail-icon
@@ -89,10 +100,6 @@
   margin: 0px auto 25px auto
   border-radius: 50%
   border: $light-color 2px solid
-  background:
-    position: center
-    size: 68%
-    repeat: no-repeat
 
   &:hover
     box-shadow: 0px 0px 8px $light-color
@@ -110,6 +117,12 @@
 
   &:hover:before
     animation: detailIconPulse 250ms
+
+.personal-detail-image
+  position: absolute
+  top: 17px
+  left: 17px
+  margin: auto
 
 .personal-detail-title
   font: 100% $font-stack3
@@ -140,7 +153,7 @@
     //size: 50vw
     size: 100vw 200vh
     attachment: fixed
-  padding: 70px 0px 70px 0px
+  padding: $about-top-and-bottom-padding + px 0 $about-top-and-bottom-padding + px 0
 
 .about-social-links
   margin: 100px auto 0px auto
@@ -201,7 +214,6 @@
   height: 54px
   margin: 5px 0px 10px 0px
   position: relative
-//animation: batteryFade 300ms
 
 .battery-graphic::before
   content: ''
@@ -251,6 +263,7 @@
   color: $highlight-color
   margin-left: 35px
   line-height: 65px
+  transition: .8s
 
 @keyframes detailIconPulse
   0%
@@ -286,3 +299,53 @@
   100%
     transform: translateX(0px)
 
+@mixin media-query-scale($scale)
+  .summary-header
+    @include font-size($summary-header-font-size * $scale)
+
+  .summary-title
+    font: 100% $font-stack3
+    @include font-size($summary-title-font-size * $scale)
+
+  .summary-subtext
+    @include font-size($summary-subtext-font-size * $scale)
+
+  .summary-who-am-i
+    @include font-size($summary-whoami-font-size * $scale)
+
+  .personal-detail-container
+    zoom: $scale
+
+  .about-summary
+    padding: $about-top-and-bottom-padding * $scale + px 0px $about-top-and-bottom-padding * $scale + px 0px
+
+  .about-skills
+    padding: $about-top-and-bottom-padding * $scale + px 0px $about-top-and-bottom-padding * $scale + px 0px
+
+  .personal-detail-title
+    font: 100% $font-stack3
+
+  @if $scale < .51
+    .personal-details-container
+      flex-direction: column
+
+    .personal-detail-container
+      margin: 20px auto
+
+@media only screen and (min-width: 400px) and (max-width: 500px)
+  @include media-query-scale(.50)
+
+@media only screen and (min-width: 501px) and (max-width: 600px)
+  @include media-query-scale(.60)
+
+@media only screen and (min-width: 601px) and (max-width: 700px)
+  @include media-query-scale(.70)
+
+@media only screen and  (min-width: 701px) and (max-width: 800px)
+  @include media-query-scale(.80)
+
+@media only screen and  (min-width: 801px) and (max-width: 900px)
+  @include media-query-scale(.90)
+
+@media (min-device-width : 375px) and (max-device-width : 667px)
+  @include media-query-scale(.50)

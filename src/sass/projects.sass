@@ -1,6 +1,9 @@
 @import "base"
 @import compass
 
+$project-header-font-size: 2.5
+$project-title-font-size: 3
+
 .container
   display: flex
   flex-direction: column
@@ -8,12 +11,15 @@
   align-items: center
   padding: 150px 0px 150px 0px
 
-.project-intro
-  font: $font-stack
-  @include font-size(2)
+.project-header
+  font: 100% $font-stack2
+  @include font-size($project-header-font-size)
+  color: $dark-color
+
+.project-title
+  font: 100% $font-stack3
+  @include font-size($project-title-font-size)
   color: $darkest-color
-  width: 70vw
-  text-align: center
 
 .project-subtext
   font: $font-stack
@@ -28,8 +34,8 @@
   background: $light-color
   box-sizing: border-box
   padding: 0 0.5rem 1rem
-  width: 10vw
-  height: 10vw
+  width: 30vw
+  height: 30vw
   box-shadow: 8px 8px 8px 0px grey
 
 

@@ -1,6 +1,9 @@
 @import "base"
 @import compass
 
+.nav-container
+  animation: slideNav 500ms ease-in-out
+
 .navigation-dark
   -webkit-backface-visibility: hidden
   -webkit-transform: translateZ(0) scale(1.0, 1.0)
@@ -14,6 +17,7 @@
   left: 50%
   +transform(translate(-50%))
   z-index: 100
+  opacity: 1
 
 .navigation-dark .navigation-base
   display: inline-block
@@ -55,7 +59,7 @@
   width: 100vw
   box-shadow: 0 2px 7px rgba(34,43,52,0.1), 0 1px 0 rgba(227,230,233,0.5)
   position: fixed
-  transition: 500ms all
+  animation: lightNavFadeIn 300ms ease-in-out
 
 .navigation-light .navigation-base
   display: inline-block
@@ -150,8 +154,8 @@
       -o-transform-origin: left center
       transform-origin: left center
 
-  &:hover span
-    background: $tertiary-color
+  //&:hover span
+  //  background: $tertiary-color
 
   transition: 300ms
 
@@ -210,6 +214,21 @@
 .hidden
   transform: scale(0, 0)
   transition: 300ms
+
+@keyframes slideNav
+  0%
+    transform: translate(0, -20px)
+    opacity: 0
+  100%
+    transform: translate(0, 0)
+    opacity: 1
+
+@keyframes lightNavFadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
 
 @mixin media-query-scale($scale)
   .navigation-dark
