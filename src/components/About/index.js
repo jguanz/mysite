@@ -28,7 +28,7 @@ class About extends Component {
             this.setState({detailsAnimationComplete: true});
         }
 
-        if (!this.state.skillsAnimationComplete && this.props.scrollPosition > this.props.splashHeight * 1.2) {
+        if (!this.state.skillsAnimationComplete && this.props.scrollPosition > this.props.splashHeight ) {
             this.setState({skillsAnimationComplete: true});
         }
     }
@@ -40,13 +40,12 @@ class About extends Component {
                     <div
                         className={this.state.summaryAnimationComplete ? "load-summary-container" : "summary-container"}>
                         <div className="summary-header">
-                            Personal Details
-                            <span className="summary-title">Who am I?</span>
+                            {/*<span className="summary-title">Who am I?</span>*/}
                             <span
-                                className="summary-subtext">I'm a software engineer who enjoys writing quality code.</span>
+                                className="summary-subtext"></span>
                         </div>
                         <div className="summary-who-am-i">
-                            My experience is broad: professionally I’ve written web applications, Microsoft applications and IBM Z/os applications; I'm eager to try new things and see what works best!
+                            I've written software for a decade.  I'm eager to try new things and see what works best.
                         </div>
                     </div>
                     <div className="personal-details-container">
@@ -57,8 +56,6 @@ class About extends Component {
                 </div>
                 <div className="about-skills">
                     <div className={this.state.skillsAnimationComplete ? "skills-header show" : "skills-header"}>
-                        My Skills
-                        <span>What I'm Best At</span>
                     </div>
                     <div className="skills-container">
                         {this.props.skills.map((skill) => <Skill key={skill.skillName} skillName={skill.skillName}

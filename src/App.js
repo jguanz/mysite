@@ -69,17 +69,17 @@ class App extends Component {
             {
                 "title": "Philosophy",
                 "icon": PhilosophyIcon,
-                "description": "I care about the code I write.  Single responsibility methods, self-documenting code, use of appropriate design patterns; I use well established practices to ensure my code is extensible and easy to understand.",
+                "description": "I write quality code.  Single responsibility methods, self-documenting code, use of appropriate design patterns; I use well established practices to ensure my code is extensible and easy to understand.",
                 "position": "left"
             },
             {
-                "title": "Hobbies",
+                "title": "Experience",
                 "icon": HobbiesIcon,
-                "description": "I like to spend time with family and friends, a picnic at the park, or a stroll along Lake Washington.  I keep things pretty simple.",
+                "description": "I've written software for financial institutions like Washington Mutual and Wells Fargo, web applications for Jack Henry and Thomas Street, and offered consulting services,
                 "position": "bottom"
             },
             {
-                "title": "Tunes",
+                "title": "Focus",
                 "icon": MusicIcon,
                 "description": "On any given day there’s a good chance that I’m listening to Marvin Gaye or John Legend.  When I feel like a podcast: Software Engineering Daily, Planet Money, and Conversations With Tyler.",
                 "position": "right"

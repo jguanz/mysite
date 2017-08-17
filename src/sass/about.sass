@@ -4,12 +4,12 @@
 $about-top-and-bottom-padding: 150
 $summary-header-font-size: 2.5
 $summary-title-font-size: 3
-$summary-subtext-font-size: 1.5
-$summary-whoami-font-size: 1.2
+$summary-subtext-font-size: 2.7
+$summary-whoami-font-size: 2.7
 
 .about-container
   position: relative
-  background-color: $neutral-color2
+  background-color: $highlight-color
 
 .about-summary
   padding: $about-top-and-bottom-padding + px 0px $about-top-and-bottom-padding + px 0px
@@ -38,7 +38,7 @@ $summary-whoami-font-size: 1.2
   font: 100% $font-stack
   max-width: 1000px
   @include font-size($summary-subtext-font-size)
-  color: $light-color
+  color: $dark-color
 
 .summary-photo
   width: 300px
@@ -53,9 +53,10 @@ $summary-whoami-font-size: 1.2
   background-color: $secondary-color
 
 .summary-who-am-i
+  font: 100% $font-stack
   @include font-size($summary-whoami-font-size)
   margin: 0px auto
-  max-width: 1100px
+  max-width: 900px
   padding: 0px 20px 0px 20px
   color: $dark-color
 
@@ -82,15 +83,15 @@ $summary-whoami-font-size: 1.2
   margin: 0px auto
   padding: 0px 10px 0px 10px
   display: block
-  transform: translateX(-100px)
+  transform: translateX(-30px)
   opacity: 0
 
 .bottom
-  transform: translateY(100px)
+  transform: translateY(30px)
   opacity: 0
 
 .right
-  transform: translateX(100px)
+  transform: translateX(30px)
   opacity: 0
 
 .personal-detail-icon
@@ -146,14 +147,13 @@ $summary-whoami-font-size: 1.2
 
 .about-skills
   background:
-    //color: $neutral-color
+    color: $highlight-color
     image: url('../assets/Coding_Wallpaper_Dark.png')
     repeat: no-repeat
     position: top center
-    //size: 50vw
     size: 100vw 200vh
     attachment: fixed
-  padding: $about-top-and-bottom-padding + px 0 $about-top-and-bottom-padding + px 0
+  padding: $about-top-and-bottom-padding + px 0px $about-top-and-bottom-padding + px 0px
 
 .about-social-links
   margin: 100px auto 0px auto
@@ -207,6 +207,7 @@ $summary-whoami-font-size: 1.2
   width: 600px
   display: flex
   flex-direction: row
+  margin: 0px auto
 
 .battery-graphic
   opacity: 1
